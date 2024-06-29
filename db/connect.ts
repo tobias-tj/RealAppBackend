@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import UserModel from '../models/user';
 import SaleModel from "../models/sale";
+import ProductModel from "../models/product";
 
 async function connectDB(){
     if(!process.env.MONGO_URL){
@@ -9,6 +10,11 @@ async function connectDB(){
     try{
         await mongoose.connect(process.env.MONGO_URL);
         console.log("Conexion exitosa con Mongo DB");
+        // await ProductModel.create({
+        //     name: "Mouse",
+        //     code: "PQPOPR2T",
+        //     supplier_cost: 210,
+        // })
         // const newUser = new UserModel({
         //     firstname : "Tobias",
         //     lastname: "Jara",
