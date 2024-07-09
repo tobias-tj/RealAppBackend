@@ -22,6 +22,17 @@ export const getById = async (req: any, res: Response) => {
     }
 }
 
+export const getByDocument = async (req: any, res: Response) => {
+    const { document } = req.params
+    try{
+        const client = await ClientModel.findOne({document_value: document})
+    
+        res.status(200).json({ ok: true, data: client})
+    }catch (error){
+        res.status(500).json({ ok: false, message: "Error del servidor" })
+    }
+}
+
 export const create = async (req: any, res: Response) => {
     console.log({ body : req.body })
     const createdClient = await ClientModel.create(req.body)
