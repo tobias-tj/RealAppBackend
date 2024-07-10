@@ -9,7 +9,7 @@ export const paymentMethodShema = new Schema({
 })
 
 const saleShema = new Schema({
-    operation_date: Date,
+    operation_date: String,
     total_amount: Number,
     product: [
         {
