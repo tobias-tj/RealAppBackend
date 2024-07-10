@@ -6,7 +6,7 @@ const clientShema = new Schema({
     email : { type : String, require: true ,unique: true },
     document_type : { type : String, require: true },
     document_value : { type : String, require: true },
-    roles : {type:{
+    sales : {type:{
         count: Number,
         amount: Number,
     }},

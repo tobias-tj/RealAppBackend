@@ -5,13 +5,21 @@ export const paymentMethodShema = new Schema({
     method: { type: String },
     amount: { type: Number, require: true},
     time_value: { type: Number, require: true},
-    time_unit: { type: Number, require: true},
+    time_unit: { type: String, require: true},
 })
 
 const saleShema = new Schema({
     operation_date: Date,
     total_amount: Number,
-    product: [productShema],
+    product: [
+        {
+            code: String,
+            name: String,
+            qty: Number,
+            unit_price: Number,
+            discount: {type: Number, default: 0}
+        }
+    ],
     payment_methods: [paymentMethodShema],
     user: { type: Types.ObjectId, ref: "User" },
     client: { type: Types.ObjectId, ref: "Client" },
